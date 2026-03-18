@@ -13,7 +13,7 @@ const FADE_UP = {
   initial: { y: 30, opacity: 0 },
   whileInView: { y: 0, opacity: 1 },
   viewport: { once: true, margin: "-100px" },
-  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
+  transition: { duration: 0.6, ease: "easeOut" }
 };
 
 const STAGGER = {
@@ -158,17 +158,17 @@ export default function Page() {
 
             <motion.div variants={STAGGER} initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: Snowflake, title: "AC Repair & Service", desc: "Expert diagnosis and gas refilling for all brands.", img: "https://images.unsplash.com/photo-1527628217451-b2414a1ee733?auto=format&fit=crop&w=600&q=80" },
+                { icon: Snowflake, title: "AC Repair & Service", desc: "Expert diagnosis and gas refilling for all brands.", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" },
                 { icon: RefreshCw, title: "Washing Machine Repair", desc: "Front-load, top-load, and semi-automatic.", img: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=600&q=80" },
                 { icon: Thermometer, title: "Refrigerator Service", desc: "Cooling issues, compressor repair, thermostat fixes.", img: "https://images.unsplash.com/photo-1584286595398-a59f21d313f5?auto=format&fit=crop&w=600&q=80" },
-                { icon: Microwave, title: "Microwave & Oven Repair", desc: "Magnetron, turntable, and control panel repair.", img: "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=600&q=80" },
-                { icon: Droplets, title: "Water Purifier Service", desc: "Filter replacement and annual maintenance.", img: "https://images.unsplash.com/photo-1556388275-bb55a1e2f385?auto=format&fit=crop&w=600&q=80" },
-                { icon: Settings, title: "Installation & AMC Plans", desc: "New appliance setup and annual maintenance contracts.", img: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=600&q=80" }
+                { icon: Microwave, title: "Microwave & Oven Repair", desc: "Magnetron, turntable, and control panel repair.", img: "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=600&q=80" },
+                { icon: Droplets, title: "Water Purifier Service", desc: "Filter replacement and annual maintenance.", img: "https://images.unsplash.com/photo-1585518419759-8f4ee4a46845?auto=format&fit=crop&w=600&q=80" },
+                { icon: Settings, title: "Installation & AMC Plans", desc: "New appliance setup and annual maintenance contracts.", img: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=600&q=80" }
               ].map((service, i) => (
                 <motion.div key={i} variants={FADE_UP} className="p-8 rounded-3xl backdrop-blur-2xl bg-white/[0.03] border border-white/[0.07] hover:bg-white/[0.05] transition-colors group relative overflow-hidden">
                   <div className="absolute inset-0 z-0 bg-[#05050A]">
-                    <Image src={service.img} alt={service.title} fill className="object-cover opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#05050A] via-[#05050A]/60 to-transparent opacity-100 transition-opacity duration-700 mix-blend-multiply" />
+                    <Image src={service.img} alt={service.title} fill className="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#05050A] via-[#05050A]/30 to-transparent opacity-100 transition-opacity duration-700 mix-blend-multiply" />
                   </div>
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all">
@@ -447,7 +447,7 @@ export default function Page() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <motion.a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" {...FADE_UP} className="p-8 rounded-3xl backdrop-blur-2xl bg-white/[0.03] border border-white/[0.07] hover:bg-white/[0.06] transition-colors flex flex-col items-center text-center relative overflow-hidden group">
                 <div className="absolute inset-0 z-0 bg-[#05050A]">
-                  <Image src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Chat" fill className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
+                  <Image unoptimized src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Chat" fill className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-b from-[#05050A]/60 to-[#05050A] mix-blend-multiply" />
                 </div>
                 <div className="relative z-10">
@@ -455,7 +455,7 @@ export default function Page() {
                     <MessageCircle className="w-8 h-8 text-[#25D366]" />
                   </div>
                   <h3 className="font-bold text-xl mb-2">WhatsApp Us</h3>
-                  <p className="text-white/60 mb-4">Fastest response time</p>
+                  <p className="text-white/60 mb-4 text-sm">Fastest response time</p>
                   <div className="flex items-center gap-2 text-sm font-medium text-[#25D366] justify-center">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75"></span>
@@ -468,7 +468,7 @@ export default function Page() {
 
               <motion.a href="tel:+919876543210" {...FADE_UP} transition={{ delay: 0.1 }} className="p-8 rounded-3xl backdrop-blur-2xl bg-white/[0.03] border border-white/[0.07] hover:bg-white/[0.06] transition-colors flex flex-col items-center text-center relative overflow-hidden group">
                 <div className="absolute inset-0 z-0 bg-[#05050A]">
-                  <Image src="https://images.unsplash.com/photo-1520923642038-b4259acebf7b?auto=format&fit=crop&w=600&q=80" alt="Call" fill className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
+                  <Image unoptimized src="https://images.unsplash.com/photo-1520923642038-b4259acebf7b?auto=format&fit=crop&w=600&q=80" alt="Call" fill className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-b from-[#05050A]/60 to-[#05050A] mix-blend-multiply" />
                 </div>
                 <div className="relative z-10">
@@ -476,14 +476,14 @@ export default function Page() {
                     <Phone className="w-8 h-8 text-blue-400" />
                   </div>
                   <h3 className="font-bold text-xl mb-2">Call Directly</h3>
-                  <p className="text-white/60 mb-4">Speak to an expert</p>
+                  <p className="text-white/60 mb-4 text-sm">Speak to an expert</p>
                   <div className="text-blue-400 font-medium">+91 98765 43210</div>
                 </div>
               </motion.a>
 
               <motion.div {...FADE_UP} transition={{ delay: 0.2 }} className="p-8 rounded-3xl backdrop-blur-2xl bg-white/[0.03] border border-white/[0.07] flex flex-col items-center text-center relative overflow-hidden group">
                 <div className="absolute inset-0 z-0 bg-[#05050A]">
-                  <Image src="https://images.unsplash.com/photo-1522749444007-4f6c44dd3924?auto=format&fit=crop&w=600&q=80" alt="Mumbai Map" fill className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
+                  <Image unoptimized src="https://images.unsplash.com/photo-1522749444007-4f6c44dd3924?auto=format&fit=crop&w=600&q=80" alt="Mumbai Map" fill className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#05050A] via-[#05050A]/60 to-[#05050A]/40 mix-blend-multiply border border-white/[0.07] rounded-3xl" />
                 </div>
                 <div className="relative z-10">
@@ -491,8 +491,8 @@ export default function Page() {
                     <MapPin className="w-8 h-8 text-indigo-400" />
                   </div>
                   <h3 className="font-bold text-xl mb-2">Service Area</h3>
-                  <p className="text-white/60">Bandra West, Khar, Santacruz</p>
-                  <div className="mt-4 text-sm text-white/40">Mumbai, Maharashtra</div>
+                  <p className="text-white/60 text-sm">Bandra West, Khar, Santacruz</p>
+                  <div className="mt-4 text-xs font-semibold tracking-wider text-white/40 uppercase">Mumbai, Maharashtra</div>
                 </div>
               </motion.div>
             </div>
