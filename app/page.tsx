@@ -13,7 +13,7 @@ const FADE_UP = {
   initial: { y: 30, opacity: 0 },
   whileInView: { y: 0, opacity: 1 },
   viewport: { once: true, margin: "-100px" },
-  transition: { duration: 0.6, ease: "easeOut" }
+  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
 };
 
 const STAGGER = {
@@ -35,6 +35,15 @@ export default function Page() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#05050A] selection:bg-blue-500/30">
+      {/* Emergency/Booking Banner */}
+      <div className="fixed top-0 left-0 right-0 z-[100] h-[44px] bg-gradient-to-r from-[#25D366] to-[#128C7E] flex items-center justify-center px-4 shadow-lg">
+        <a href="https://wa.me/919999999999?text=Hi!%20I'd%20like%20to%20book%20an%20appointment!" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white font-medium text-sm hover:opacity-90 transition-opacity">
+          <MessageCircle className="w-4 h-4" />
+          <span className="hidden sm:inline">Fastest response time on WhatsApp —</span>
+          <span className="font-bold">Message Us Now</span>
+        </a>
+      </div>
+
       {/* 1. Background Orbs & Grid */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-600/20 blur-[140px] animate-[pulse_20s_ease-in-out_infinite]" />
@@ -322,7 +331,7 @@ export default function Page() {
                 <div className="relative z-10 transition-transform group-hover:-translate-y-1">
                   <h3 className="text-xl font-medium text-white/70 mb-2">Basic Repair</h3>
                   <div className="flex items-baseline gap-1 mb-6">
-                    <span className="text-4xl font-heading font-bold">$39</span>
+                    <span className="text-4xl font-heading font-bold">₹1560</span>
                     <span className="text-white/50">/visit</span>
                   </div>
                   <ul className="space-y-4 mb-8">
@@ -346,7 +355,7 @@ export default function Page() {
                 <div className="relative z-10">
                   <h3 className="text-xl font-medium text-blue-200 mb-2">Full Service</h3>
                   <div className="flex items-baseline gap-1 mb-6">
-                    <span className="text-5xl font-heading font-bold">$89</span>
+                    <span className="text-5xl font-heading font-bold">₹3560</span>
                     <span className="text-white/50">/repair</span>
                   </div>
                   <ul className="space-y-4 mb-8">
@@ -368,7 +377,7 @@ export default function Page() {
                 <div className="relative z-10 transition-transform group-hover:-translate-y-1">
                   <h3 className="text-xl font-medium text-white/70 mb-2">AMC Plan</h3>
                   <div className="flex items-baseline gap-1 mb-6">
-                    <span className="text-4xl font-heading font-bold">$199</span>
+                    <span className="text-4xl font-heading font-bold">₹7960</span>
                     <span className="text-white/50">/year</span>
                   </div>
                   <ul className="space-y-4 mb-8">
@@ -447,7 +456,7 @@ export default function Page() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <motion.a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" {...FADE_UP} className="p-8 rounded-3xl backdrop-blur-2xl bg-white/[0.03] border border-white/[0.07] hover:bg-white/[0.06] transition-colors flex flex-col items-center text-center relative overflow-hidden group">
                 <div className="absolute inset-0 z-0 bg-[#05050A]">
-                  <Image unoptimized src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Chat" fill className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
+                  <Image src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Chat" fill className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-b from-[#05050A]/60 to-[#05050A] mix-blend-multiply" />
                 </div>
                 <div className="relative z-10">
@@ -455,7 +464,7 @@ export default function Page() {
                     <MessageCircle className="w-8 h-8 text-[#25D366]" />
                   </div>
                   <h3 className="font-bold text-xl mb-2">WhatsApp Us</h3>
-                  <p className="text-white/60 mb-4 text-sm">Fastest response time</p>
+                  <p className="text-white/60 mb-4">Fastest response time</p>
                   <div className="flex items-center gap-2 text-sm font-medium text-[#25D366] justify-center">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75"></span>
@@ -466,9 +475,9 @@ export default function Page() {
                 </div>
               </motion.a>
 
-              <motion.a href="tel:+919876543210" {...FADE_UP} transition={{ delay: 0.1 }} className="p-8 rounded-3xl backdrop-blur-2xl bg-white/[0.03] border border-white/[0.07] hover:bg-white/[0.06] transition-colors flex flex-col items-center text-center relative overflow-hidden group">
+              <motion.a href="https://wa.me/919999999999" {...FADE_UP} transition={{ delay: 0.1 }} className="p-8 rounded-3xl backdrop-blur-2xl bg-white/[0.03] border border-white/[0.07] hover:bg-white/[0.06] transition-colors flex flex-col items-center text-center relative overflow-hidden group">
                 <div className="absolute inset-0 z-0 bg-[#05050A]">
-                  <Image unoptimized src="https://images.unsplash.com/photo-1520923642038-b4259acebf7b?auto=format&fit=crop&w=600&q=80" alt="Call" fill className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
+                  <Image src="https://images.unsplash.com/photo-1520923642038-b4259acebf7b?auto=format&fit=crop&w=600&q=80" alt="Call" fill className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-b from-[#05050A]/60 to-[#05050A] mix-blend-multiply" />
                 </div>
                 <div className="relative z-10">
@@ -476,14 +485,14 @@ export default function Page() {
                     <Phone className="w-8 h-8 text-blue-400" />
                   </div>
                   <h3 className="font-bold text-xl mb-2">Call Directly</h3>
-                  <p className="text-white/60 mb-4 text-sm">Speak to an expert</p>
+                  <p className="text-white/60 mb-4">Speak to an expert</p>
                   <div className="text-blue-400 font-medium">+91 98765 43210</div>
                 </div>
               </motion.a>
 
               <motion.div {...FADE_UP} transition={{ delay: 0.2 }} className="p-8 rounded-3xl backdrop-blur-2xl bg-white/[0.03] border border-white/[0.07] flex flex-col items-center text-center relative overflow-hidden group">
                 <div className="absolute inset-0 z-0 bg-[#05050A]">
-                  <Image unoptimized src="https://images.unsplash.com/photo-1522749444007-4f6c44dd3924?auto=format&fit=crop&w=600&q=80" alt="Mumbai Map" fill className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
+                  <Image src="https://images.unsplash.com/photo-1522749444007-4f6c44dd3924?auto=format&fit=crop&w=600&q=80" alt="Mumbai Map" fill className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#05050A] via-[#05050A]/60 to-[#05050A]/40 mix-blend-multiply border border-white/[0.07] rounded-3xl" />
                 </div>
                 <div className="relative z-10">
@@ -491,8 +500,8 @@ export default function Page() {
                     <MapPin className="w-8 h-8 text-indigo-400" />
                   </div>
                   <h3 className="font-bold text-xl mb-2">Service Area</h3>
-                  <p className="text-white/60 text-sm">Bandra West, Khar, Santacruz</p>
-                  <div className="mt-4 text-xs font-semibold tracking-wider text-white/40 uppercase">Mumbai, Maharashtra</div>
+                  <p className="text-white/60">Bandra West, Khar, Santacruz</p>
+                  <div className="mt-4 text-sm text-white/40">Mumbai, Maharashtra</div>
                 </div>
               </motion.div>
             </div>
